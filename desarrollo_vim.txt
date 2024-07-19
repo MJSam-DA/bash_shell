@@ -39,6 +39,13 @@ Al ejecutar el script, se ejecutarán los comandos donde hayamos llamado las var
 
 
 
+**DEBUGEAR UN SCRIPT**
+- Ver el resultado detallado de un script, evaluado línea por línea -> bash -v "nombre de script.sh"
+
+- Desplegar la info de los comandos que son utilizados, capturando el comando y su salida -> bash -x "nombre de script.sh"
+
+
+
 **VARIABLES DE ENTORNO**
 + Las varialbles de entorno del sistema operativo las podemos en contrar desde el home con:
 
