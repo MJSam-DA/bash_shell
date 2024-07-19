@@ -1,0 +1,97 @@
+**CONFIGURACIÓN**
++ Para que vim tenga una mejor vista para realizar scripts creamos un archivo .vimrcpara indicar la configuración que llevaría:
+
+vimrc = vim resource configuration file
+En este enlace se puede crear .vimrc facilmente: https://vimconfig.com/
+
++ Para asignar un nombre a un archivo.sh o script, debemos asegurarnos que el nombre que elegiremos no esta ya guardado en el sistema para que no exita conflicto. Para eso nos ayudamos del siguiente comando:
+
+- type "nombre deseado SIN extención" -> si no lo encuentra entonces si se puede usar.
+
+
+
+**SCRIPTS**
+* Cuando creamos un archivo que contiene un script, tenemos que guardarlo con la extención .sh.
++ En la primer línea del script se pone: # !/bin/bash
+
+Cuando colocas la cabecera !/bin/bash a un archivo, que a su vez has dado permisos de ejecución --x--x, estás indicando al sistema operativo cuál será la aplicación que se encargará de hacer dicha ejecución ... De esta manera pudieras colocarle incluso cualquier extensión al archivo ya que al ejecutarlo con la instrucción de la terminal >./archivo.ext, sería esta cabecera la que definirá su comportamiento.
+
++ Para poder ejecutar un script debe tener los permisos correspondientes de ejecución, por lo que es recomendable darlos de la siguiente forma:
+
+- chmod 764 "archivo" -> cada digito corresponde a "Dueño""Grupo""World" y es en modo octal, 7=rwx (aquí se da permiso de ejecución) 6=rw- 4=r--
+
++ Para ejecutar el script se hace de las siguientes formas:
+
+- bash "archivo"
+- ./"archivo"
+
++ Ejecutar un script con argumentos:
+- El nombre del script -> $0
+- El número de argumento, si son más de un digito se utilizan las llaves -> $1 ó ${10}
+- Contador de argumentos -> $#
+- Refiere a todos los argumentos -> $*
+- Para ejecutar un script que pide argumentos (es como llamar a una función con argumentos) -> bash script.sh "argumento 1" "argumento 2" 
+
++ Sustitución de comandos en variables. Escribiendo un script, podemos crear variables y asignares como valor un comando:
+- Usando el backtick caracter (`) -> Ej: ubicacion=`pwd`
+- Usando el signo de pesos y entre parentesis el comando ($()) -> Ej: infoKernel=$(uname -a)
+Al ejecutar el script, se ejecutarán los comandos donde hayamos llamado las variables.
+
+
+
+**VARIABLES DE ENTORNO**
++ Las varialbles de entorno del sistema operativo las podemos en contrar desde el home con:
+
+- sudo vim /etc/profile -> debe tener permisos con sudo para poder editar.
+
++ Guardar una variable de entorno:
+#Comentario
+NOMBRE_DE_VARIABLE=Valor de la variable
+export NOMBRE_DE_VARIABLE
+
++ Variables dentro de usuario o de programa (script):
+Se guardan en un archivo .sh, que debe tener los permisos de ejecución, de la siguiente forma:
+
+cabecera: # !/bin/bash
+
+declarar variable: nombre_de_variable=valor de variable
+
+mostrar valor de variable en terminal: echo "Texto opcional $nombre_de_variable texto opcional"
+
+Se ejecuta script.
+
++ Exportar variables de un script para que estén disponibles para otros:
+En un script ya creado donde este la variable que queremos exportar, como la siguiente:
+
+nombre_variable=valor
+
+export nombre_variable
+
+Indicamos al script donde queremos reutilizar la variable (este script se ejecutará también):
+./nombre_script.sh
+
+En el script donde vamos a reautilizar la variable, solo llamamos a la variable con $nombre_variable en la parte del script donde la necesitamos, ya sin declararla. Este script se ejecuta desde el archivo original, al ejecutar desde este script no reconocerá la variable importada.
+
+Para que nos aparezca solo el echo de cada script sin perder el valor de la variable en el segundo, los ejecutamos en una misma instacia con ayuda de "source":
+
+- source ./script.sh ./script2.sh
+
+
+
+
+***COMANDOS-ATAJOS VIM***
+- Borrar línea completa -> En modo visual nos posicionamos en la línea que queremos borrar y presionamos dos veces "d".
+
+- Borrar varias lineas a la vez -> De la misma forma que borramos una línea, pero con la diferencia de que primero indicamos el número de líneas a borrar y después presionamos "dd"
+
+- Acción deshacer como ctrl+z -> Mientras estamos escribiendo, tecleamos "esc" y "u"
+
+- Copiar y pegar líneas completas -> En modo visual, nos colocamos en la líena que queremos copiar y presionamos "yy", después nos vamos a la línea donde queremos pegar y presionamos "p". En caso de que queramos copias más de una línea, nos posicionamos desde donde queremos copiar, indicamos el número de líneas hacia abajo que queremos copíar y "yy" y pegamos igual. Ej: 3yy para copiar 3 líneas.
+
+- Dar un enter o caracteres especiales con echo -> para poder poner carácteres para dar un salto de línea o un enter, usamos "-e" y "\n". Ej: echo -e "\nEsta línea va abajo".
+
+- Ir al final de la línea -> En modo visual, presionamos el signo de pesos, es decir shift+4.
+
+- Borrar desde donde esta el cursor hasta donde queramos seleccionar -> En modo visual, nos posicionamos desde donde queremos borrar, presionamos ctrl+v, aparece VISUAL BLOCK abajo, y con shift seleccionamos hasta donde queremos borrar y presionamos la letra "d" una vez.
+
+
