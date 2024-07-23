@@ -37,6 +37,32 @@ Cuando colocas la cabecera !/bin/bash a un archivo, que a su vez has dado permis
 - Usando el signo de pesos y entre parentesis el comando ($()) -> Ej: infoKernel=$(uname -a)
 Al ejecutar el script, se ejecutarán los comandos donde hayamos llamado las variables.
 
++ Capturar información del usuario:
+- Utilizamos "echo" para dar instrucciones al usuario y "read" para dar entrada a que el usuario ingrese info. Por último, con la variable nativa $REPLY guardamos la respuesta en una variable creada por nosotros. Ej: 
+nombre=""
+echo "Escribe tu nombre: "
+read
+nombre=$REPLY
+echo "Bienvenid@ $nombre"
+- Otra forma más sencilla es utilizar solo "read" con ayuda del flag "-p". Ej:
+nombre=""
+read -p "Ingresa tu nombre: " nombre
+echo "Bienvenid@ $nombre"
+
+
+
+**EXPRESIONES REGULARES**
+Dentro de este contexto en la programación bash para cumplir con este objetivo se utiliza expresiones regulares, las cuales son básicamente cadenas de caracteres que definen un patrón de búsqueda que se valida frente a una información específica para asegurar que cumple la validación definida.
+
+Se necesita conocer ciertos criterios utilizados en las expresiones regulares que son los siguientes:
+
+^.- Caracter que representa el inicio de la expresión regular.
+$.- Caracter que representa el final de la expresión regular.
+*.- Caracter que representa cero o más ocurrencias de la expresión
++.- Caracter que representa una o más ocurrencias de la expresión.
+{n}.-Representa n veces de una expresión.
+[ ] .- Representa un conjunto de caracteres, por ejemplo: [a-z] representa las letras del abecedario de la a a la z.
+
 
 
 **DEBUGEAR UN SCRIPT**
