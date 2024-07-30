@@ -49,6 +49,12 @@ nombre=""
 read -p "Ingresa tu nombre: " nombre
 echo "Bienvenid@ $nombre"
 
++ Validar datos:
+- Unicamente para validar el número de caracteres que deben ser ingresados y al escribir no se puede regresar o borrar caracteres. Para validar el tipo de datos se deben usar expresiones regulares.
+
+- No pasar de la línea actual hasta ingresar cierto núm de caracteres -> read -n"número". Ej: read -n2
+- Imprimr un espacio -> echo -e "\n"
+- Dar formato oculto a lo que se escribe, como una contraseña -> read -s
 
 
 **EXPRESIONES REGULARES**
@@ -119,7 +125,7 @@ Para que nos aparezca solo el echo de cada script sin perder el valor de la vari
 
 - Acción deshacer como ctrl+z -> Mientras estamos escribiendo, tecleamos "esc" y "u"
 
-- Copiar y pegar líneas completas -> En modo visual, nos colocamos en la líena que queremos copiar y presionamos "yy", después nos vamos a la línea donde queremos pegar y presionamos "p". En caso de que queramos copias más de una línea, nos posicionamos desde donde queremos copiar, indicamos el número de líneas hacia abajo que queremos copíar y "yy" y pegamos igual. Ej: 3yy para copiar 3 líneas.
+- Copiar y pegar líneas completas -> En modo visual, nos colocamos en la línea que queremos copiar y presionamos "yy", después nos vamos a la línea donde queremos pegar y presionamos "p". En caso de que queramos copias más de una línea, nos posicionamos desde donde queremos copiar, indicamos el número de líneas hacia abajo que queremos copíar y "yy" y pegamos igual. Ej: 3yy para copiar 3 líneas.
 
 - Dar un enter o caracteres especiales con echo -> para poder poner carácteres para dar un salto de línea o un enter, usamos "-e" y "\n". Ej: echo -e "\nEsta línea va abajo".
 
