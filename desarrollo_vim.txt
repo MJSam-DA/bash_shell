@@ -50,11 +50,36 @@ read -p "Ingresa tu nombre: " nombre
 echo "Bienvenid@ $nombre"
 
 + Validar datos:
-- Unicamente para validar el número de caracteres que deben ser ingresados y al escribir no se puede regresar o borrar caracteres. Para validar el tipo de datos se deben usar expresiones regulares.
+- Unicamente para validar el número de caracteres que deben ser ingresados. Para validar el tipo de datos se deben usar expresiones regulares.
 
 - No pasar de la línea actual hasta ingresar cierto núm de caracteres -> read -n"número". Ej: read -n2
+
 - Imprimr un espacio -> echo -e "\n"
+
 - Dar formato oculto a lo que se escribe, como una contraseña -> read -s
+
++ Conectarse a internet y descargar un archivo:
+- Para conectarnos a una página y descargar el archivo -> wget "url de la pagina"
+
++ Condicionales:
+- Usamos la sintaxis siguiente:
+if (( condicion )); then
+    sentencia
+else
+    sentencia
+fi
+- También podemos usar [] en lugar de parentesis.
+- Para indicar en la condicion los operadores <= también se puede usar -le (lower equal). Ej:
+if [ $edad -le 18 ]; then
+    echo "mayor de edad"
+else
+    echo "menor de edad"
+fi
+- Para una doble condicion se usa [] []. Ej:
+if [ $edad -ge 14 ] && [ $edad -le 29 ]; then
+    echo "Adolecente"
+fi
+
 
 
 **EXPRESIONES REGULARES**
