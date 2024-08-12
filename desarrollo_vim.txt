@@ -158,4 +158,3 @@ Para que nos aparezca solo el echo de cada script sin perder el valor de la vari
 
 - Borrar desde donde esta el cursor hasta donde queramos seleccionar -> En modo visual, nos posicionamos desde donde queremos borrar, presionamos ctrl+v, aparece VISUAL BLOCK abajo, y con shift seleccionamos hasta donde queremos borrar y presionamos la letra "d" una vez.
 
-
