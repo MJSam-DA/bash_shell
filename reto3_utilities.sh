@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 # Reto 3: Solicitar que se ingrese un valor del 1 al 5. Según el valor ingresado, hacer la validación utilizando las condicionales e imprimir el resultado. Construir expresiones de validación numéricas, cadenas y archivos según la opción ingresada.
 # Autor: Matthew Farrell
 
@@ -39,7 +39,7 @@ elif [[ $opcion == 3 ]]; then
 elif [[ $opcion == 4 ]]; then
     nombreScript=""
     read -p "¿Qué nombre desea que tenga su script? " nombreScript
-    echo "# !/bin/bash" | tee -a "$nombreScript".sh ; chmod 764 "$nombreScript".sh ; vim "$nombreScript".sh
+    echo "#!/bin/bash" | tee -a "$nombreScript".sh ; chmod 764 "$nombreScript".sh ; vim "$nombreScript".sh
 
 elif [[ $opcion == 5 ]]; then
     nombrePag=""
